@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Хостинг статических проектов за секунды. Загрузите ZIP-архив и получите публичную ссылку." />
+    <title>ZipDrop — Хостинг статических проектов</title>
+    
+    <!-- Preconnect для быстрой загрузки шрифтов -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <!-- Критические стили inline для быстрого рендеринга -->
+    <style>
+      :root {
+        font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        --surface-muted: #050e18;
+        --surface-card: #0f1c2c;
+        --border-subtle: #1c2b3e;
+        --border-strong: #22344b;
+        --text-primary: #f5f8ff;
+        --text-secondary: #9db3cf;
+        --text-tertiary: #6c7a8f;
+        --accent-primary: #6bf6e5;
+        --accent-primary-strong: #4fd5ff;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background: radial-gradient(circle at 10% 20%, rgba(107, 246, 229, 0.15), transparent 50%),
+          radial-gradient(circle at 90% 10%, rgba(79, 213, 255, 0.12), transparent 50%),
+          var(--surface-muted);
+        color: var(--text-primary);
+        font-family: 'Inter', system-ui, sans-serif;
+      }
+      #app { min-height: 100vh; }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

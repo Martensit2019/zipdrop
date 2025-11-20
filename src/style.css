@@ -1,0 +1,148 @@
+/* Оптимизированная загрузка шрифтов с font-display: swap для быстрого рендеринга */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  font-family:
+    'Inter',
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Тёмная тема (по умолчанию) */
+:root,
+[data-theme='dark'] {
+  background-color: #050e18;
+
+  --surface-muted: #050e18;
+  --surface-card: #0f1c2c;
+  --border-subtle: #1c2b3e;
+  --border-strong: #22344b;
+  --text-primary: #f5f8ff;
+  --text-secondary: #9db3cf;
+  --text-tertiary: #6c7a8f;
+  --accent-primary: #6bf6e5;
+  --accent-primary-strong: #4fd5ff;
+}
+
+/* Светлая тема */
+[data-theme='light'] {
+  background-color: #f8fafc;
+
+  --surface-muted: #f8fafc;
+  --surface-card: #ffffff;
+  --border-subtle: #e2e8f0;
+  --border-strong: #cbd5e1;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-tertiary: #94a3b8;
+  --accent-primary: #06b6d4;
+  --accent-primary-strong: #0891b2;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 10% 20%, rgba(107, 246, 229, 0.15), transparent 50%),
+    radial-gradient(circle at 90% 10%, rgba(79, 213, 255, 0.12), transparent 50%),
+    var(--surface-muted);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+[data-theme='light'] body {
+  background:
+    radial-gradient(circle at 10% 20%, rgba(6, 182, 212, 0.08), transparent 50%),
+    radial-gradient(circle at 90% 10%, rgba(8, 145, 178, 0.06), transparent 50%),
+    var(--surface-muted);
+}
+
+a {
+  color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 0.5rem;
+  line-height: 1.2;
+}
+
+p {
+  margin: 0 0 0.75rem;
+}
+
+#app {
+  min-height: 100vh;
+}
+
+.btn {
+  border-radius: 999px;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.btn--primary {
+  background: var(--accent-primary);
+  color: #04111f;
+}
+
+.btn--primary:hover {
+  transform: translateY(-1px);
+  background: var(--accent-primary-strong);
+}
+
+.btn--ghost {
+  border-color: var(--border-strong);
+  color: var(--text-primary);
+  background: transparent;
+}
+
+.btn--ghost:hover {
+  border-color: var(--accent-primary);
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: var(--text-tertiary);
+  font-size: 0.8rem;
+}
+
+.mono {
+  font-family:
+    'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
+    'Courier New', monospace;
+}
