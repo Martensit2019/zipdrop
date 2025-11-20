@@ -2,10 +2,10 @@
 interface Props {
   name: 'lightning' | 'chart' | 'link' | 'lock' | 'package' | 'copy' | 'warning' | 'info' | 'check' | 'sun' | 'moon' | 'eye' | 'eye-off'
   size?: number | string
-  class?: string
+  className?: string
 }
 
-const props = withDefaults(defineProps<Props>(), {
+withDefaults(defineProps<Props>(), {
   size: 24,
 })
 
@@ -31,7 +31,7 @@ const icons: Record<Props['name'], string> = {
     :width="size"
     :height="size"
     viewBox="0 0 24 24"
-    :class="class"
+    :class="className"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     v-html="icons[name]"

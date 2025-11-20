@@ -1,20 +1,25 @@
 import { z } from 'zod'
 
-export const loginSchema = z.object({
+const loginBaseSchema = z.object({
   email: z.string().email('Некорректный email адрес'),
   password: z.string().min(8, 'Пароль должен содержать минимум 8 символов'),
 })
 
-export const registerSchema = z
-  .object({
-    email: z.string().email('Некорректный email адрес'),
-    password: z.string().min(8, 'Пароль должен содержать минимум 8 символов'),
-    passwordConfirm: z.string(),
-  })
-  .refine((data) => data.password === data.passwordConfirm, {
+export const loginSchema = loginBaseSchema
+
+export const registerBaseSchema = z.object({
+  email: z.string().email('Некорректный email адрес'),
+  password: z.string().min(8, 'Пароль должен содержать минимум 8 символов'),
+  passwordConfirm: z.string(),
+})
+
+export const registerSchema = registerBaseSchema.refine(
+  (data) => data.password === data.passwordConfirm,
+  {
     message: 'Пароли не совпадают',
     path: ['passwordConfirm'],
-  })
+  },
+)
 
 export type LoginFormData = z.infer<typeof loginSchema>
 export type RegisterFormData = z.infer<typeof registerSchema>

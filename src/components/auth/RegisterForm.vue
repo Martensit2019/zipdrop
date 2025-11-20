@@ -2,7 +2,7 @@
 import { ref, reactive } from 'vue'
 import { useDebounceFn } from '@vueuse/core'
 import { useAuthStore } from '@/stores/auth'
-import { registerSchema, type RegisterFormData } from '@/validation/auth'
+import { registerSchema, registerBaseSchema, type RegisterFormData } from '@/validation/auth'
 import AppInput from '@/components/ui/AppInput.vue'
 import AppPasswordInput from '@/components/ui/AppPasswordInput.vue'
 import AppAlert from '@/components/ui/AppAlert.vue'
@@ -26,7 +26,10 @@ const validateField = useDebounceFn((field: keyof RegisterFormData) => {
     if (field === 'passwordConfirm') {
       registerSchema.parse(form)
     } else {
-      registerSchema.pick({ [field]: true }).parse({ [field]: form[field] })
+      const fieldSchema = registerBaseSchema.shape[field]
+      if (fieldSchema) {
+        fieldSchema.parse(form[field])
+      }
       if (field === 'password' && form.passwordConfirm) {
         registerSchema.parse(form)
       }

@@ -22,7 +22,10 @@ const isSubmitting = ref(false)
 
 const validateField = useDebounceFn((field: keyof LoginFormData) => {
   try {
-    loginSchema.pick({ [field]: true }).parse({ [field]: form[field] })
+    const fieldSchema = loginSchema.shape[field]
+    if (fieldSchema) {
+      fieldSchema.parse(form[field])
+    }
     errors[field] = undefined
   } catch (err: any) {
     if (err.errors?.[0]) {

@@ -45,7 +45,7 @@ type PreviewState =
 const canShowPreview = computed(() => previewState.value === 'ready')
 
 const previewState = computed<PreviewState>(() => {
-  if (projectsStore.isLoading.value && !project.value) return 'loading'
+  if (projectsStore.isLoading && !project.value) return 'loading'
   if (!project.value) return 'missing'
   if (project.value.status !== 'ready') return 'processing'
   if (!project.value.isPublic || !project.value.publicUrl) return 'not-public'
