@@ -155,7 +155,7 @@ const getProjectPublicUrl = (project: Project): string | null => {
   if (!fallbackSlug) {
     return null
   }
-  return `https://${fallbackSlug}.zipdrop.ru`
+  return `http://${fallbackSlug}.zipdrop.ru`
 }
 
 const handleUpload = async () => {

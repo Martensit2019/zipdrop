@@ -80,9 +80,9 @@ export const useProjectsStore = defineStore('projects', () => {
   const buildPublicUrl = (slug: string, fallback?: string): string => {
     const normalizedSlug = slug?.trim() || fallback?.trim() || ''
     if (!normalizedSlug) {
-      return 'https://zipdrop.ru'
+      return 'http://zipdrop.ru'
     }
-    return `https://${normalizedSlug}.zipdrop.ru`
+    return `http://${normalizedSlug}.zipdrop.ru`
   }
 
   const formatDate = (dateString: string): string => {
