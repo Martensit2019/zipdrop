@@ -125,7 +125,7 @@ onMounted(() => {
           </div>
           <div v-if="isAnimating" class="preview-url">
             <span class="preview-url__label">Публичная ссылка:</span>
-            <code class="preview-url__code">https://abc123.zipdrop.ru</code>
+            <code class="preview-url__code">http://abc123.zipdrop.ru</code>
             <button class="preview-url__copy" type="button" aria-label="Копировать">
               <Icon name="copy" :size="16" />
             </button>

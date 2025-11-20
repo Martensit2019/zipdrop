@@ -218,7 +218,7 @@ const handleUpload = async () => {
     const publicUrl = getProjectPublicUrl(freshProject)
 
     const inputBasedUrl = lastGeneratedSlug.value
-      ? `https://${lastGeneratedSlug.value}.zipdrop.ru`
+      ? `http://${lastGeneratedSlug.value}.zipdrop.ru`
       : null
     const finalUrl = inputBasedUrl || publicUrl
 
